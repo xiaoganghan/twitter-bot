@@ -1,0 +1,5 @@
+cron:
+- description: Cron Job
+  url: /bots/phpbangla
+  schedule: every 60 mins
+
