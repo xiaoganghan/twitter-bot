@@ -1,5 +1,5 @@
 cron:
 - description: Cron Job
-  url: /bots/phpbangla
+  url: /bots/twitterbot
   schedule: every 60 mins
 
