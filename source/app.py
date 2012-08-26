@@ -12,6 +12,8 @@ import tweepy
 import bitly
 import urllib2
 
+from local_settings import TwitterKey, BitlyKey
+
 class TwitterDB(db.Model):
     reddit_id = db.StringProperty()
     created_at = db.DateTimeProperty(auto_now_add=True)
@@ -19,14 +21,16 @@ class TwitterDB(db.Model):
 
 class TwitterBot(webapp.RequestHandler):
     def get(self):
-        consumer_key = ""
-        consumer_secret = ""
-        access_token = ""
-        access_token_secret = ""
+        consumer_key = TwitterKey['consumer_key']
+        consumer_secret = TwitterKey['consumer_secret']
+        access_token = TwitterKey['access_token']
+        access_token_secret = TwitterKey['access_token_secret']
+
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_token_secret)
         bot = tweepy.API(auth)
-        shortapi = bitly.Api(login='', apikey='')
+
+        shortapi = bitly.Api(login=BitlyKey['login'], apikey=BitlyKey['apikey'])
 
         url = 'http://www.reddit.com/r/programming/.json'
         jsondata = json.loads(urllib2.urlopen(url).read())
@@ -36,6 +40,7 @@ class TwitterBot(webapp.RequestHandler):
             posts = jsondata['data']['children']
             posts.reverse()
             for ind, post in enumerate(posts):
+                entry = post['data']
                 logging.debug(entry['permalink'] + ' ' +entry['url'])
                 postid = entry['id']
                 query = TwitterDB.all()
@@ -43,10 +48,7 @@ class TwitterBot(webapp.RequestHandler):
                 query.filter('reddit_id =', postid)
                 res = query.fetch(1)
 
-                logging.debug(status)
-
                 if len(res) == 0 and num_comments > 5:
-                    entry = post['data']
                     title = entry['title']
                     score = entry['score']
                     downs = entry['downs']
@@ -57,7 +59,7 @@ class TwitterBot(webapp.RequestHandler):
                     status = ' %s [%s by:%s comments:%d score:%d]' % (url, permalink, author, num_comments, score)
                     status = title[:(140 - len(status))] + status
                     status = status.encode('utf-8')
-
+                    logging.debug(status)
                     tweets += '<p>' + status + '</p>'
                     bot.update_status(status)
                     item = TwitterDB()
