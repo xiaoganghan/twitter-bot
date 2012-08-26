@@ -1,5 +1,5 @@
 cron:
 - description: Cron Job
   url: /bots/twitterbot
-  schedule: every 60 mins
+  schedule: every 20 mins
 

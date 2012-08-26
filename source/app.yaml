@@ -1,4 +1,4 @@
-application: xxx
+application: hai-fa
 version: 1
 runtime: python
 api_version: 1
@@ -6,3 +6,6 @@ api_version: 1
 handlers:
 - url: .*
   script: app.py
+
+builtins:
+- remote_api: on
