@@ -1,1 +1,15 @@
 Dumps hot links instead of new links on programming.reddit only after they've got more than 5 comments.
+
+# Get started
+
+## obtain keys from twitter and bitly, and assign them to the variables defined in app.py
+```python 
+consumer_key = ""
+    consumer_secret = ""
+    access_token = ""
+    access_token_secret = ""
+
+    bitly.Api(login='', apikey='')
+```
+
+## change 'appname' in app.yaml to the name of your app on appengine
