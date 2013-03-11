@@ -21,3 +21,7 @@ BitlyKey = {
 ```
 
 change appname in app.yaml to the name of your app on appengine.
+
+License
+=======
+Apache 2.0
