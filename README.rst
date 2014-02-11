@@ -25,7 +25,8 @@ Get started
 
 create a file named local_settings.py in the 'twitter-bot/twitter-bot' dir, and copy and parse the following code with the keys obtained from Twitter and Bitly.
 
-```python
+
+.. code:: python
 TwitterKey = {
         'consumer_key': "",
         'consumer_secret': "",
@@ -38,7 +39,6 @@ BitlyKey = {
         'apikey': ''
         }
 
-```
 
 
 Features
