@@ -7,10 +7,10 @@ import bitly
 from BeautifulSoup import BeautifulSoup
 
 def test():
-	consumer_key = "Y58SeSAKiseoXalPqbYhIQ"
-	consumer_secret = "q51SOmJhT8eVRORKtx6AiqJ1YfsDnRAqbmWmtdjklo"
-	access_token = "178269422-SNexeTB56lZ9wQ3VXL1nRJg0WeYdWoHUfqlEwjO2"
-	access_token_secret = "WrGaBCHtGbZLttIQKVmrqhTp9wOYM9KSs6HSOHLf3k"
+	consumer_key = "s558Kqo8BOJJcPkJAYD0SA"
+	consumer_secret = "xKygrOzOzhqzuMmUWVDS7o5zF2NnlG09elIcOHAP0"
+	access_token = "178269422-LPYkO9XyAhfXpCHjuEpxEpgQbwoByC6RKZn2Vkh1"
+	access_token_secret = "cei9nnwmHn208bWapbyUr10XalGhn5pF6S2Hqz9xXcTo9"
 	auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 	auth.set_access_token(access_token, access_token_secret)
 	bot = tweepy.API(auth)
@@ -19,7 +19,7 @@ def test():
 	atomxml = feedparser.parse(feed)
 	entries = atomxml['entries']
 	tweets = ''
-	
+
 	if len(entries) != 0:
 		entries.reverse()
 		for x in range(len(entries)):
@@ -41,20 +41,20 @@ def test():
 					if link.string.find('comments') > 0:
 						status += ' ' + link.string
 						num_comments = int(link.string[1:-1].split()[0])
-				
+
 				try:
 					status = title[:(140 - len(status))] + status
 				except:
 					status = repr(title[:(140 - len(status))]) + status
-				
+
 				print status
 				print num_comments
 			except:
 				pass
 if __name__ == "__main__":
 	test()
-                
-        
-        
-        
-          
+
+
+
+
+
