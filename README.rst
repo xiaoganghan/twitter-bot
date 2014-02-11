@@ -26,18 +26,19 @@ Get started
 create a file named local_settings.py in the 'twitter-bot/twitter-bot' dir, and copy and parse the following code with the keys obtained from Twitter and Bitly.
 
 
-.. code:: python
-TwitterKey = {
-        'consumer_key': "",
-        'consumer_secret': "",
-        'access_token': "",
-        'access_token_secret': ""
-        }
+::
 
-BitlyKey = {
-        'login': '',
-        'apikey': ''
-        }
+    TwitterKey = {
+            'consumer_key': "",
+            'consumer_secret': "",
+            'access_token': "",
+            'access_token_secret': ""
+            }
+    
+    BitlyKey = {
+            'login': '',
+            'apikey': ''
+            }
 
 
 
