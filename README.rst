@@ -23,7 +23,7 @@ Dumps hot links instead of new links on programming.reddit only after they've go
 Get started
 -----------
 
-create a file named local_settings.py in the 'source' dir, and copy and parse the following code with the keys obtained from Twitter and Bitly.
+create a file named local_settings.py in the 'twitter-bot/twitter-bot' dir, and copy and parse the following code with the keys obtained from Twitter and Bitly.
 
 ```python
 TwitterKey = {
@@ -40,7 +40,6 @@ BitlyKey = {
 
 ```
 
-change appname in app.yaml to the name of your app on appengine.
 
 Features
 --------
