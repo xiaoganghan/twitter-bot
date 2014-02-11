@@ -40,7 +40,9 @@ create a file named local_settings.py in the 'twitter-bot/twitter-bot' dir, and 
             'apikey': ''
             }
 
-
+Create a cron task to run twitter-bot.py, say every five minutes
+::
+    */5 * * * * python twitter-bot/twitter-bot/twitter-bot.py
 
 Features
 --------
