@@ -23,7 +23,9 @@ Dumps hot links instead of new links on programming.reddit only after they've go
 Get started
 -----------
 
-create a file named local_settings.py in the 'twitter-bot/twitter-bot' dir, and copy and parse the following code with the keys obtained from Twitter and Bitly.
+* pip install -r requirements.txt
+
+* create a file named local_settings.py in the 'twitter-bot/twitter-bot' dir, and copy and parse the following code with the keys obtained from Twitter and Bitly.
 
 
 ::
@@ -40,8 +42,10 @@ create a file named local_settings.py in the 'twitter-bot/twitter-bot' dir, and 
             'apikey': ''
             }
 
-Create a cron task to run twitter-bot.py, say every five minutes
+* Create a cron task to run twitter-bot.py, say every five minutes
+
 ::
+
     */5 * * * * python twitter-bot/twitter-bot/twitter-bot.py
 
 Features
