@@ -8,6 +8,7 @@ import urllib2
 import sqlite3
 from local_settings import TwitterKey, BitlyKey
 
+logging.basicConfig(filename='log.txt', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 def run():
@@ -33,13 +34,12 @@ def run():
 
     jsondata = json.loads(urllib2.urlopen(url).read())
 
-    tweets = ''
     if 'data' in jsondata and 'children' in jsondata['data']:
         posts = jsondata['data']['children']
         posts.reverse()
         for ind, post in enumerate(posts):
             entry = post['data']
-            logging.debug(entry['permalink'] + ' ' +entry['url'])
+            # logging.debug(entry['permalink'] + ' ' +entry['url'])
             postid = entry['id']
             num_comments = entry['num_comments']
 
@@ -54,10 +54,10 @@ def run():
                 url = shortapi.shorten(entry['url'])
                 author = entry['author']
                 status = ' %s [%s by:%s comments:%d score:%d]' % (url, permalink, author, num_comments, score)
-                status = title[:(140 - len(status))] + status
+                status = title[:(135 - len(status))] + status
                 status = status.encode('utf-8')
+
                 logging.debug(status)
-                tweets += '<p>' + status + '</p>'
                 bot.update_status(status)
                 cur.execute("INSERT INTO tweet_table VALUES (?, ?, ?)", [None, postid, None])
     conn.commit()
