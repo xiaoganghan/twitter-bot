@@ -23,7 +23,11 @@ Dumps hot links instead of new links on programming.reddit only after they've go
 Get started
 -----------
 
-* pip install -r requirements.txt
+* install dependencies
+
+::
+
+    pip install -r requirements.txt
 
 * create a file named local_settings.py in the 'twitter-bot/twitter-bot' dir, and copy and parse the following code with the keys obtained from Twitter and Bitly.
 
