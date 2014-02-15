@@ -14,11 +14,10 @@ twitter-bot
 
 twitter bot
 
-* Free software: BSD license
-* Documentation: http://twitter-bot.rtfd.org.
-
-
 Dumps hot links instead of new links on programming.reddit only after they've got more than 5 comments.
+
+
+* Free software: BSD license
 
 Get started
 -----------
